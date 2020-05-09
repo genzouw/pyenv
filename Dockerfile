@@ -2,10 +2,6 @@ FROM ubuntu:19.10
 
 LABEL maintainer "genzouw <genzouw@gmail.com>"
 
-RUN echo -n \
-  | openssl s_client -showcerts -connect github.com:443 2>/dev/null \
-  | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
-
 RUN apt update \
   && apt upgrade -y \
   && apt install -y \
