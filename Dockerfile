@@ -34,6 +34,10 @@ RUN apt update \
   && apt clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-ENV PATH /root/.pyenv/bin:$PATH
+ENV PYENV_ROOT "/root/.pyenv"
+
+ENV PATH $PYENV_ROOT/bin:$PYENV_ROOT/shims/:$PATH
+
+ENV PYENV_SHELL bash
 
 VOLUME /root/.pyenv
